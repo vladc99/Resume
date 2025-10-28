@@ -44,13 +44,28 @@ a{
   padding-right: 5px;
 }
 
+
 .mobileMenu {
   display: none;
 }
 
 @media only screen and (max-width: 1200px) {
   .mobileMenu {
-    display: contents;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+  .p-speeddial {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10000;
+    padding: 0;
   }
 }
 </style>

@@ -1,6 +1,5 @@
-import {createWebHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 import HomePage from "../views/HomePage";
-import TablePage from "../views/TablePage";
 
 const routes = [
     {
@@ -9,9 +8,19 @@ const routes = [
         component: HomePage
     },
     {
-        path: '/table',
-        name: 'Table-Page',
-        component: TablePage
+        path: '/project',
+        name: 'Normal-Page',
+        component: () => import('../views/NormalPage.vue')
+    },
+    {
+        path: '/test',
+        name: 'Test-Page',
+        component: () => import('../views/TestPage.vue')
+    },
+    {
+        path: '/projects',
+        name: 'Projects-Page',
+        component: () => import('../views/ProjectsPage.vue')
     }
 ]
 

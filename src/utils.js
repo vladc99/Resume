@@ -3,7 +3,7 @@ const menus = [
         label: "Home",
         icon: "pi pi-home",
         command: () => {
-            window.location.href = "https://vladc99.github.io/Resume"
+            window.location.href = "/Resume"
         }
     },
     {
@@ -21,11 +21,18 @@ const menus = [
         },
     },
     {
-        label: "TCM",
-        icon: "pi pi-folder-open",
+        label: "Projects",
+        icon: "pi pi-folder",
         command: () => {
-            window.location.href = "https://vladc99.github.io/Resume/table", "_blank";
-        }
+            window.location.href = "/Resume/project";
+        },
+    },
+    {
+        label: "Projects (All)",
+        icon: "pi pi-cog",
+        command: () => {
+            window.location.href = "/Resume/projects";
+        },
     },
 ]
 

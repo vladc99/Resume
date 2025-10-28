@@ -1,17 +1,37 @@
 <template>
-  <Header />
-
-  <router-view />
+  <div>
+    <Header v-if="!isMobile" />
+    <MobileMenu v-else />
+    <router-view />
+  </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import MobileMenu from "./components/MobileMenu.vue";
 
 export default {
   name: "App",
   components: {
     Header,
+    MobileMenu,
   },
+  data() {
+    return {
+      isMobile: window.innerWidth <= 1200,
+    };
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.isMobile = window.innerWidth <= 1200;
+    }
+  }
 };
 </script>
 
@@ -30,5 +50,18 @@ body {
   body {
     padding-bottom: 10%;
   }
+}
+
+body, html {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: fixed !important;
+}
+pre {
+    background: #f5f5f5;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
 }
 </style>

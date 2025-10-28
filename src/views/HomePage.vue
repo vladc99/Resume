@@ -37,20 +37,15 @@
       </Timeline>
     </div>
   </div>
-  <div>
-    <MobileMenu />
-  </div>
 </template>
 
 <script>
 import Timeline from "primevue/timeline";
-import MobileMenu from "../components/MobileMenu.vue";
 
 export default {
   name: "HomePage",
   components: {
     Timeline,
-    MobileMenu,
   },
   data() {
     return {
@@ -73,12 +68,23 @@ export default {
         },
         {
           name: "Scotiabank",
-          description: "Jul 2021-Present",
+          description: "Jul 2021-Sep 2025",
           icon: "pi pi-building",
         },
       ],
     };
   },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.isMobile = window.innerWidth <= 1200;
+    }
+  }
 };
 </script>
 
