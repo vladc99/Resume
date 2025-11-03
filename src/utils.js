@@ -7,6 +7,13 @@ const menus = [
         }
     },
     {
+        label: "Projects",
+        icon: "pi pi-folder",
+        command: () => {
+            window.location.href = "/projects";
+        },
+    },
+    {
         label: "LinkedIn",
         icon: "pi pi-linkedin",
         command: () => {
@@ -18,13 +25,6 @@ const menus = [
         icon: "pi pi-github",
         command: () => {
             window.open("https://github.com/vladc99", "_blank");
-        },
-    },
-    {
-        label: "Projects",
-        icon: "pi pi-folder",
-        command: () => {
-            window.location.href = "/projects";
         },
     },
 ]

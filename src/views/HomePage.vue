@@ -1,6 +1,6 @@
 <template>
-  <div class="card card-container">
-    <div class="flex justify-content-center m-2">
+  <div class="card card-container flex">
+    <div class="flex justify-content-center">
       <img :src="imgPath" alt="me" />
     </div>
     <div class="flex justify-content-center m-2 text" style="flex-direction: column">
@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      imgPath: require("../assets/me.jpg"),
+      imgPath: require("../assets/headshot.png"),
       timeLine: [
         {
           name: "Sheridan College",
@@ -88,12 +88,13 @@ export default {
 
 img {
   border-radius: 50%;
-  width: 350px;
-  height: 350px;
-}
-
-.roboto {
-  font-family: "Roboto", sans-serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 30% center;
 }
 
 .hello {

@@ -1,38 +1,43 @@
 /* Global theme variables */
 :root {
-  /* Full palette from user (deep to light) */
-  --blue-500: #353535;
-  --blue-400: #3C6E71;
-  --blue-300: #FFFFFF;
-  --blue-200: #D9D9D9;
-  --blue-100: #284B63;
+    /* Full palette from user (deep to light) */
+    --blue-500: #353535;
+    --blue-400: #3C6E71;
+    --blue-300: #FFFFFF;
+    --blue-200: #D9D9D9;
+    --blue-100: #284B63;
 
-  /* Base surfaces and text */
-  --color-bg: var(--blue-500);
-  --color-surface: #ffffff;
-  --text-color: var(--blue-300);
-  --text-muted: var(--blue-100);
+    /* Base surfaces and text */
+    --color-bg: var(--blue-500);
+    --color-surface: #ffffff;
+    --text-color: var(--blue-300);
+    --text-muted: var(--blue-100);
 
-  /* Brand mapping */
-  --brand-grad-start: var(--blue-500);
-  --brand-grad-end: var(--blue-400);
-  --brand-contrast: var(--blue-300); /* text/border on brand bg */
-  --brand-contrast-hover: var(--blue-200);
-  --brand-accent: var(--blue-500);
+    /* Brand mapping */
+    --brand-grad-start: var(--blue-500);
+    --brand-grad-end: var(--blue-400);
+    --brand-contrast: var(--blue-300);
+    /* text/border on brand bg */
+    --brand-contrast-hover: var(--blue-200);
+    --brand-accent: var(--blue-500);
 
-  /* Overlays / utilities */
-  --overlay-bg: var(--blue-500);
-  --shadow-rgb: 144, 224, 239; /* rgb of #90E0EF */
+    /* Overlays / utilities */
+    --overlay-bg: var(--blue-500);
+    --shadow-rgb: 144, 224, 239;
+    /* rgb of #90E0EF */
 }
 
-html, body {
-  color: var(--text-color);
-  background-color: var(--color-bg);
-  font-family: "Roboto", sans-serif;
+html,
+body {
+    color: var(--text-color);
+    font-family: "Roboto", sans-serif;
+    position: initial;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    height: 100%;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
-
-

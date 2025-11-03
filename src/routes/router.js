@@ -8,9 +8,9 @@ const routes = [
         component: HomePage
     },
     {
-        path: '/project',
-        name: 'Normal-Page',
-        component: () => import('../views/NormalPage.vue')
+        path: '/calculator',
+        name: 'Calculator-Page',
+        component: () => import('../views/Calculator.vue')
     },
     {
         path: '/test',
@@ -21,7 +21,17 @@ const routes = [
         path: '/projects',
         name: 'Projects-Page',
         component: () => import('../views/ProjectsPage.vue')
-    }
+    },
+    {
+        path: '/guess',
+        name: 'Guess-Page',
+        component: () => import('../views/Guess.vue')
+    },
+    {
+        path: '/wordle',
+        name: 'Wordle-Page',
+        component: () => import('../views/Wordle.vue')
+    },
 ]
 
 const router = createRouter({

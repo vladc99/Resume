@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import Aura from '@primeuix/themes/aura';
+import './assets/background.css'
 import './assets/theme.css'
 
 const app = createApp(App);

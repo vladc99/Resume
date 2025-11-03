@@ -1,4 +1,10 @@
 <template>
+  <div class="stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
   <div>
     <NavBar v-if="!isMobile" />
     <MobileMenu v-else />
@@ -34,34 +40,3 @@ export default {
   }
 };
 </script>
-
-<style>
-body {
-  background-image: url("assets/bg 2.svg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-  background-attachment: fixed;
-  max-height: 100%;
-  padding-bottom: 98px;
-}
-
-@media only screen and (max-width: 1200px){
-  body {
-    padding-bottom: 10%;
-  }
-}
-
-body, html {
-    overflow: hidden !important;
-    height: 100% !important;
-    width: 100% !important;
-    position: fixed !important;
-}
-pre {
-    background: var(--color-bg);
-    padding: 1em;
-    border-radius: 4px;
-    overflow-x: auto;
-}
-</style>
