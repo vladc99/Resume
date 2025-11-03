@@ -146,8 +146,9 @@ export default {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 2rem;
+  align-items: flex-start;
+  padding: 0;
+  padding-top: 10vh;
 }
 
 .calculator {

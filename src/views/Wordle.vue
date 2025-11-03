@@ -181,9 +181,10 @@ export default {
 .wordle-page {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem;
+  padding: 0;
+  padding-top: 10vh;
 }
 
 .wordle-card {
@@ -262,8 +263,44 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 420px) {
-  .cell { height: 48px; font-size: 1.2rem; }
+/* Mobile optimizations */
+@media (max-width: 600px) {
+  .wordle-page {
+    min-height: 100dvh;
+    padding: 12px;
+    padding-top: 6px;
+  }
+  .wordle-card {
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+  .board { gap: 6px; }
+  .row { gap: 6px; }
+  .cell {
+    height: 44px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+  }
+  .keyboard { margin-top: 10px; }
+  .kb-row { gap: 4px; margin-bottom: 4px; }
+  .key {
+    padding: 12px 8px;
+    min-width: 34px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  .key.wide { min-width: 56px; }
+}
+
+/* Short screens (e.g., landscape phones) */
+@media (max-height: 700px) {
+  .cell { height: 40px; font-size: 1rem; }
+  .key { padding: 8px 6px; }
 }
 </style>
 
