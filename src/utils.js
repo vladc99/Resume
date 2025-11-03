@@ -3,7 +3,7 @@ const menus = [
         label: "Home",
         icon: "pi pi-home",
         command: () => {
-            window.location.href = "/Resume"
+            window.location.href = "/"
         }
     },
     {
@@ -24,14 +24,7 @@ const menus = [
         label: "Projects",
         icon: "pi pi-folder",
         command: () => {
-            window.location.href = "/Resume/project";
-        },
-    },
-    {
-        label: "Projects (All)",
-        icon: "pi pi-cog",
-        command: () => {
-            window.location.href = "/Resume/projects";
+            window.location.href = "/projects";
         },
     },
 ]

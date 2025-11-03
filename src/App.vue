@@ -1,19 +1,19 @@
 <template>
   <div>
-    <Header v-if="!isMobile" />
+    <NavBar v-if="!isMobile" />
     <MobileMenu v-else />
     <router-view />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
 import MobileMenu from "./components/MobileMenu.vue";
+import NavBar from "./components/NavBar.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
+    NavBar,
     MobileMenu,
   },
   data() {
@@ -37,7 +37,7 @@ export default {
 
 <style>
 body {
-  background-image: url("assets/bg.svg");
+  background-image: url("assets/bg 2.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -59,7 +59,7 @@ body, html {
     position: fixed !important;
 }
 pre {
-    background: #f5f5f5;
+    background: var(--color-bg);
     padding: 1em;
     border-radius: 4px;
     overflow-x: auto;

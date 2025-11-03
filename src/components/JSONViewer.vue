@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 pre {
-    background: #f5f5f5;
+    background: var(--color-bg);
     padding: 1em;
     border-radius: 4px;
     overflow-x: auto;

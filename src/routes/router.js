@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
-import HomePage from "../views/HomePage";
+import HomePage from "../views/HomePage.vue";
 
 const routes = [
     {
@@ -25,7 +25,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('/Resume/'),
+    history: createWebHistory(),
     routes,
 })
 

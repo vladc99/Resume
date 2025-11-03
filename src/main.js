@@ -1,14 +1,19 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import Aura from '@primeuix/themes/aura';
+import './assets/theme.css'
 
 const app = createApp(App);
 
 import "/node_modules/primeflex/primeflex.css"
-import "primevue/resources/primevue.min.css"
-import "primeicons/primeicons.css"
-import "primevue/resources/themes/bootstrap4-dark-blue/theme.css"
+import 'primeicons/primeicons.css'
 import PrimeVue from 'primevue/config';
-app.use(PrimeVue);
+
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura,
+    }
+});
 
 import Sidebar from "primevue/sidebar";
 app.use(Sidebar);

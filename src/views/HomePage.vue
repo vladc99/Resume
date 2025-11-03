@@ -3,10 +3,7 @@
     <div class="flex justify-content-center m-2">
       <img :src="imgPath" alt="me" />
     </div>
-    <div
-      class="flex justify-content-center m-2 text"
-      style="flex-direction: column"
-    >
+    <div class="flex justify-content-center m-2 text" style="flex-direction: column">
       <div class="flex justify-content-center">
         <p class="hello">Hi, I'm Vlad</p>
       </div>
@@ -22,17 +19,16 @@
           </span>
         </template>
         <template #content="slotProps">
-          <p style="font-weight: bold; margin: 0px">
+          <p style="font-weight: bold; margin: 0px" class="roboto">
             {{ slotProps.item.name }}
           </p>
-          <p>{{ slotProps.item.description }}</p>
+          <p style="font-style: italic;" class="roboto">
+            {{ slotProps.item.description }}
+          </p>
         </template>
 
         <template #connector>
-          <div
-            class="p-timeline-event-connector"
-            style="width: 3px; background-color: white; opacity: 0.7"
-          />
+          <div class="p-timeline-event-connector" style="width: 3px; background-color: white; opacity: 0.7" />
         </template>
       </Timeline>
     </div>
@@ -63,7 +59,7 @@ export default {
         },
         {
           name: "Sheridan College",
-          description: "Finished in 2021",
+          description: "2021",
           icon: "pi pi-briefcase",
         },
         {
@@ -89,13 +85,15 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
 
 img {
   border-radius: 50%;
   width: 350px;
   height: 350px;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
 }
 
 .hello {
@@ -161,6 +159,7 @@ i {
     margin-top: 1%;
     margin-bottom: 1%;
   }
+
   .timeline {
     min-width: 0%;
     padding-top: 5%;
@@ -176,9 +175,11 @@ i {
   .me {
     text-align: center;
   }
+
   .card {
     display: block;
   }
+
   img {
     width: 200px;
     height: 200px;

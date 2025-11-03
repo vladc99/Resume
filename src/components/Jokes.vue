@@ -44,8 +44,11 @@ export default {
                 const data = await response.json();
                 this.joke = data[0];
             } catch (error) {
-                console.error('Error fetching joke:', error);
-                this.joke = { setup: 'Error', punchline: 'Failed to fetch a joke. Please try again later.' };
+                console.error("Error fetching joke, here's a good one:", error);
+                this.joke = {
+                    setup: "What did the router say to the doctor?",
+                    punchline: "It hurts when IP."
+                };
             }
         },
         handleMouseMove(e) {
@@ -91,27 +94,27 @@ export default {
         background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
     padding: 1em 2em;
     border-radius: 999px;
-    background: linear-gradient(135deg, #232946 0%, #1a1a2e 100%);
-    color: #b8cfff;
+    background: linear-gradient(135deg, var(--brand-grad-start) 0%, var(--brand-grad-end) 100%);
+    color: var(--brand-contrast);
     font-size: 1.2em;
     font-weight: bold;
-    box-shadow: 0 4px 16px rgba(184, 207, 255, 0.12);
-    border: 2px solid #b8cfff;
+    box-shadow: 0 4px 16px rgba(var(--shadow-rgb), 0.12);
+    border: 2px solid var(--brand-contrast);
     cursor: pointer;
     outline: none;
     letter-spacing: 0.05em;
     user-select: none;
 }
 .joke-btn:hover {
-    background: linear-gradient(135deg, #1a1a2e 0%, #232946 100%);
-    box-shadow: 0 8px 24px rgba(184, 207, 255, 0.18);
-    color: #a7c7e7;
-    border-color: #a7c7e7;
+    background: linear-gradient(135deg, var(--brand-grad-end) 0%, var(--brand-grad-start) 100%);
+    box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.18);
+    color: var(--brand-contrast-hover);
+    border-color: var(--brand-contrast-hover);
     transform: scale(1.08);
 }
 
 h2 {
-    color: #42b983;
+    color: var(--brand-accent);
 }
 
 </style>
