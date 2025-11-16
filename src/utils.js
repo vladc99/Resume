@@ -8,7 +8,7 @@ const menus = [
     },
     {
         label: "Projects",
-        icon: "pi pi-folder",
+        icon: "pi pi-warehouse",
         command: () => {
             window.location.href = "/projects";
         },
