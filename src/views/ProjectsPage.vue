@@ -1,19 +1,37 @@
 <template>
   <div class="projects-page">
     <div class="projects-wrapper">
+      <h2 class="subheader">My products</h2>
+      <div class="products-grid">
+        <button
+          v-for="product in products"
+          :key="product.id"
+          class="project-card product-card"
+          @click="redirectTo(product.url)"
+          :data-product-id="product.id"
+        >
+          <div class="card-content">
+            <h2 class="project-title">{{ product.name }}</h2>
+            <p class="project-description">{{ product.description }}</p>
+            <p v-if="product.description2" class="project-description-2">{{ product.description2 }}</p>
+            <p v-if="product.description3" class="project-description-2">{{ product.description3 }}</p>
+            <div class="project-link">
+              <span>View Product</span>
+              <i class="pi pi-arrow-right"></i>
+            </div>
+          </div>
+        </button>
+      </div>
+
       <h1 class="page-title">My Projects</h1>
       <div class="projects-grid">
-        <button
-          v-for="project in projects"
-          :key="project.id"
-          class="project-card"
-          @click="redirectTo(project.url)"
-          :data-project-id="project.id"
-        >
+        <button v-for="project in projects" :key="project.id" class="project-card" @click="redirectTo(project.url)"
+          :data-project-id="project.id">
           <div class="card-content">
             <h2 class="project-title">{{ project.name }}</h2>
             <p class="project-description">{{ project.description }}</p>
             <p v-if="project.description2" class="project-description-2">{{ project.description2 }}</p>
+            <p v-if="project.description3" class="project-description-2">{{ project.description3 }}</p>
             <div class="project-link">
               <span>View Project</span>
               <i class="pi pi-arrow-right"></i>
@@ -30,9 +48,25 @@ export default {
   name: 'ProjectsPage',
   data() {
     return {
+      products: [
+        {
+          id: 1,
+          name: 'Riftlink.gg',
+          description: 'League of Legends Custom Profile maker',
+          description2: 'Need an account? use testing@testing.com and password 123456789',
+          url: 'https://riftlink.gg'
+        },
+        {
+          id: 2,
+          name: 'SoundboardGuys.com',
+          description: 'SoundboardGuys.com is a website that allows you to create and share soundboards.',
+          description2: 'Over thousands of users monthly.',
+          url: 'https://soundboardguys.com'
+        }
+      ],
       projects: [
         {
-          id: 1, 
+          id: 1,
           name: 'Chase the joke?',
           description: 'This mini project makes it so you need to chase the button to get the joke.',
           description2: '(Only works on desktop)',
@@ -43,7 +77,7 @@ export default {
           name: 'Guess the programming language',
           description: "You'll be shown a snippet and your job is to guess the programming language",
           url: '/guess'
-        }, 
+        },
         {
           id: 3,
           name: 'Working calculator',
@@ -55,6 +89,12 @@ export default {
           name: 'Wordle',
           description: "Wordle but with programming words",
           url: '/wordle'
+        },
+        {
+          id: 5,
+          name: 'Minesweeper',
+          description: "Classic Minesweeper game with multiple difficulty levels",
+          url: '/minesweeper'
         },
       ]
     };
@@ -103,6 +143,29 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.subheader {
+  font-family: "Cinzel", serif;
+  font-size: 1.75em;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid var(--blue-400);
+  border-radius: 16px;
+  min-height: 200px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .project-card {
@@ -210,9 +273,15 @@ export default {
     margin-bottom: 2rem;
   }
 
-  .projects-grid {
+  .projects-grid,
+  .products-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .subheader {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
   }
 
   .project-card {

@@ -2,11 +2,24 @@
   <div class="dock-window dock-advanced" :style="{ height: '100%', width: '100%' }">
     <Dock :model="items">
       <template #itemicon="{ item }">
-        <i :class="item.icon" style="font-size: 300%" @click="item.command" @mouseover="hover = true"
-          @mouseleave="hover = false" />
-        <Tooltip v-if="hover" :content="item.label" />
+        <div class="tooltip-wrapper">
+          <i 
+            :class="item.icon" 
+            style="font-size: 300%" 
+            @click="item.command"
+            @mouseenter="showTooltip($event, item)"
+            @mouseleave="hideTooltip"
+          />
+        </div>
       </template>
     </Dock>
+    <div 
+      v-if="activeTooltip" 
+      class="custom-tooltip"
+      :style="tooltipStyle"
+    >
+      {{ activeTooltip }}
+    </div>
   </div>
 </template>
 
@@ -22,12 +35,41 @@ export default {
   },
   data() {
     return {
-      hover: false,
-      items: []
+      items: [],
+      activeTooltip: null,
+      tooltipStyle: {}
     };
   },
   mounted() {
     this.items = utils.menus;
+  },
+  methods: {
+    showTooltip(event, item) {
+      this.activeTooltip = item.description || item.label;
+      
+      // Find the dock item container (parent element)
+      const iconElement = event.currentTarget;
+      let dockItem = iconElement.closest('.p-dock-item');
+      
+      // If we can't find the dock item, use the icon itself
+      const targetElement = dockItem || iconElement;
+      const rect = targetElement.getBoundingClientRect();
+      
+      // Position tooltip above the element, centered horizontally
+      // Account for hover transform (translateY(-10px))
+      const hoverOffset = 10; // The translateY on hover
+      const tooltipOffset = 15; // Space between element and tooltip
+      
+      this.tooltipStyle = {
+        top: `${rect.top - tooltipOffset - hoverOffset}px`,
+        left: `${rect.left + rect.width / 2}px`,
+        transform: 'translateX(-50%) translateY(-100%)'
+      };
+    },
+    hideTooltip() {
+      this.activeTooltip = null;
+      this.hoveredItemIndex = null;
+    }
   }
 };
 </script>
@@ -84,6 +126,46 @@ export default {
 /* Smooth transition for all dock item content */
 .p-dock-item-content {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-tooltip {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 10000;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.85);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%) translateY(0);
+  }
 }
 
 @media only screen and (max-width: 1200px) {

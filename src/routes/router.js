@@ -32,6 +32,11 @@ const routes = [
         name: 'Wordle-Page',
         component: () => import('../views/Wordle.vue')
     },
+    {
+        path: '/minesweeper',
+        name: 'Minesweeper-Page',
+        component: () => import('../views/Minesweeper.vue')
+    },
 ]
 
 const router = createRouter({
